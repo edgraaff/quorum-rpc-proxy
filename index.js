@@ -2,11 +2,9 @@ const Koa = require('koa');
 const body = require('koa-json-body');
 const fetch = require('node-fetch');
 const BN = require('bn.js');
+const config = require('./config');
 
 const app = new Koa();
-
-const RPC_URL = 'http://localhost:8545';
-const PORT = 7545;
 
 app.use(body({
   limit: '10kb',
@@ -15,7 +13,7 @@ app.use(body({
 
 app.use(async ctx => {
   if (ctx.request.body) {
-    const response = await fetch(RPC_URL, {
+    const response = await fetch(config.rpcUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -39,4 +37,4 @@ app.use(async ctx => {
   }
 });
 
-app.listen(PORT);
+app.listen(config.port);
