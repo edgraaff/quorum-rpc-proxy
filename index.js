@@ -10,7 +10,7 @@ for (const proxy of config) {
   const app = new Koa();
 
   app.use(body({
-    limit: '10kb',
+    limit: proxy.limit,
     fallback: true
   }));
 
