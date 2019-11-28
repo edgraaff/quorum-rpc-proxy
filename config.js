@@ -1,4 +1,5 @@
 module.exports = [{
-  rpcUrl: 'http://localhost:8545',
-  port: 7545
+  rpcUrl: 'http://127.0.0.1:8545',
+  port: 7545,
+  limit: '50kb'
 }];

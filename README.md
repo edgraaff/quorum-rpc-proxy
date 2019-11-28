@@ -10,7 +10,16 @@ Test project that serves a RPC proxy. When RAFT consensus is used, the timestamp
     npm install
     ```
 
-*   Configure by editing `config.js`. Set `rpcUrl` to the RPC URL you would like to proxy to. Set `port` to any available port.
+*   Configure by editing `config.js`. Set `rpcUrl` to the RPC URL you would like to proxy to. Set `port` to any available port. Set `limit` to your expected respone/request size.
+
+    Example:
+    ```
+    module.exports = [{
+        rpcUrl: 'http://127.0.0.1:8545',
+        port: 7545,
+        limit: '50kb'
+    }];
+    ```
 
 *   Start server
 
